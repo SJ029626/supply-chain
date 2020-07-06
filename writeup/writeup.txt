@@ -1,0 +1,19 @@
+In order to use this project run the following command:
+For Local:
+1) Launch Ganache GUI
+2)  truffle compile
+    truffle migrate --reset
+    truffle test
+3)Run local server with the following command:
+    npm run dev
+4) Test DApp in browser : - http://localhost:3000/
+
+For 
+1) go to the truffle.json file and put the mnemonic and infura key there inorder to run on the network.
+2) truffle compile
+truffle migrate --reset --network rinkeby
+truffle test
+3)Run local server with the following command:
+npm run dev
+Also, remember to Test DApp in browser:- http://localhost:3000/
+Please install the Metamask in browser for this.
