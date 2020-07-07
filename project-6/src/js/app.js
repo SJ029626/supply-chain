@@ -159,7 +159,7 @@ App = {
         var processId = parseInt($(event.target).data('id'));
 
         App.contracts.SupplyChain.deployed().then(function(instance) {
-            return instance.processItem(
+            return instance.harvestItem(
                 App.upc,
                 App.originManufacturerID,
                 App.originManufacturerName,
@@ -170,6 +170,20 @@ App = {
         }).then(function(result) {
             $("#ftc-item").text(result);
             console.log('harvestItem',result);
+        }).catch(function(err) {
+            console.log(err.message);
+        });
+    },
+
+    processItem: function (event) {
+        event.preventDefault();
+        var processId = parseInt($(event.target).data('id'));
+
+        App.contracts.SupplyChain.deployed().then(function(instance) {
+            return instance.processItem(App.upc, {from: App.metamaskAccountID});
+        }).then(function(result) {
+            $("#ftc-item").text(result);
+            console.log('processItem',result);
         }).catch(function(err) {
             console.log(err.message);
         });
